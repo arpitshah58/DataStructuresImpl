@@ -1,4 +1,4 @@
-package com.arpit.lists;
+package com.arpit.lists.singly;
 
 public class LinkedList {
 
