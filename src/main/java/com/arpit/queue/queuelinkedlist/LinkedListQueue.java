@@ -11,6 +11,10 @@ public class LinkedListQueue {
 		
 	}
 	
+	public int size(){
+		return length;
+	}
+	
 	public void enqueue(int data){
 		ListNode node = new ListNode(data);
 		if(length == 0){
@@ -27,22 +31,10 @@ public class LinkedListQueue {
 		if(isEmpty()){
 			throw new Exception("Queue is already Empty");
 		}
-		
-		ListNode removedNodePrevious = front;
+
 		ListNode removedNode = front;
-		if(length == 1){
-			removedNode = front;
-			front = null;
-			rear = null;
-			length--;
-			return removedNode.getData();
-		}
-		for(int i=0;i<length-1;i++){
-			removedNodePrevious = removedNode;
-			removedNode = removedNodePrevious.getNext();
-		}
-		removedNodePrevious.setNext(null);
-		rear = removedNodePrevious;
+		front = front.getNext();
+		removedNode.setNext(null);
 		length--;
 		return removedNode.getData();
 	}
